@@ -31,8 +31,8 @@ h4. Today value
 Get the current value of the uf as float
 
 <pre>
-	uf = Sbif::Uf.new
-	uf.today
+uf = Sbif::Uf.new
+uf.today
 </pre>
 
 h4. All values from a year 
@@ -40,12 +40,14 @@ h4. All values from a year
 Get the value of the uf for each day for a given year
 
 <pre>
-	uf = Sbif::Uf.new
-	uf.year("2010")
+uf = Sbif::Uf.new
+uf.year("2010")
 </pre>
 
 The method returns a hash with this format
-<pre>{
+
+<pre>
+{
   "YY-MM-DD" => value,
   "YY-MM-DD" => value,
   .
