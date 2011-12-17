@@ -1,0 +1,75 @@
+h1. Sbif Wrapper
+
+This is a wrapper for the Sbif API. Its documentation (in Spanish) can be found at 
+<pre>
+	http://api.sbif.cl
+</pre>
+
+h2. Installation
+
+<pre>
+	gem 'sbif', :git => 'git://github.com/imella/sbif-ruby.git'
+</pre>
+
+Create a sbif.yml in your config folder
+
+<pre>
+	development:
+	  sbif_key:	"YOUR-API-KEY"
+	  
+	test:
+	  sbif_key:	"YOUR-API-KEY"
+	  
+	production:
+	  sbif_key: "YOUR-API-KEY"
+</pre>
+
+h2. Sample Usage
+
+h3. Get UF values
+
+h4. Today value
+
+Get the current value of the uf as float
+<pre>
+	uf = Sbif::Uf.new
+	uf.today
+</pre>
+
+h4. All values from a year 
+
+Get the value of the uf for each day for a given year
+
+<pre>
+	uf = Sbif::Uf.new
+	uf.year("2010")
+</pre>
+
+The method returns a hash with this format
+<pre>
+	{
+		"YY-MM-DD" => value,
+		"YY-MM-DD" => value,
+		.
+		.
+		.
+	}
+</pre>
+
+h2. TO-DO
+
+h3. UF
+* UF values for a given month of a given year
+* UF value for a given date
+* UF values after a given year
+* UF values after a given month of a given year
+* UF values after a given date
+* UF values before a given year
+* UF values before a given month of a given year
+* UF values before a given date
+* UF values between two given dates
+* UF values between two given months
+* UF values between two given years
+
+h3. USD
+* All resources
