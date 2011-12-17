@@ -13,10 +13,10 @@ Create a sbif.yml in your config folder
 
 <pre>
 development:
-  sbif_key:	"YOUR-API-KEY"
+  sbif_key: "YOUR-API-KEY"
   
 test:
-  sbif_key:	"YOUR-API-KEY"
+  sbif_key: "YOUR-API-KEY"
   
 production:
   sbif_key: "YOUR-API-KEY"
