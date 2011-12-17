@@ -45,13 +45,12 @@ Get the value of the uf for each day for a given year
 </pre>
 
 The method returns a hash with this format
-<pre>
-{
-	"YY-MM-DD" => value,
-	"YY-MM-DD" => value,
-	.
-	.
-	.
+<pre>{
+  "YY-MM-DD" => value,
+  "YY-MM-DD" => value,
+  .
+  .
+  .
 }
 </pre>
 
