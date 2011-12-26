@@ -88,7 +88,7 @@ uf.on_date(2011, 2, 1)
 h2. TO-DO
 
 h3. UF
-* UF values for a given month of a given year
+- UF values for a given month of a given year -
 * UF value for a given date
 * UF values after a given year
 * UF values after a given month of a given year
