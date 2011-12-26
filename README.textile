@@ -41,7 +41,7 @@ Get the value of the uf for each day for a given year
 
 <pre>
 uf = Sbif::Uf.new
-uf.year("2010")
+uf.year(2010)
 </pre>
 
 The method returns a hash with this format
@@ -54,6 +54,35 @@ The method returns a hash with this format
   .
   .
 }
+</pre>
+
+h4. All values from a month of a year
+Get the value of the uf for each day of a given month/year
+
+<pre>
+uf = Sbif::Uf.new
+uf.month_of_year(2011, 2)
+</pre>
+
+The method returns a hash with this format
+
+<pre>
+{
+  "YY-MM-DD" => value,
+  "YY-MM-DD" => value,
+  .
+  .
+  .
+}
+</pre>
+
+h4. On a specific date value
+
+Get the value of the uf for a given date as a float
+
+<pre>
+uf = Sbif::Uf.new
+uf.on_date(2011, 2, 1)
 </pre>
 
 h2. TO-DO
