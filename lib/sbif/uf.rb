@@ -13,6 +13,7 @@ module Sbif
       @endpoint = @@sbif_base_url + "uf"
     end
     
+    # Returns todays UF value
     def today(format="json")
       resp = RestClient.get @endpoint,
               {
@@ -25,6 +26,7 @@ module Sbif
       format_number(data["Valor"])
     end
     
+    # Returns each day UF value for a whole year
     def year(year, format="json")
       resp = RestClient.get @endpoint+"/#{year}", 
               {
@@ -33,10 +35,39 @@ module Sbif
                   :formato => format
                 }
               }
-      data = JSON.parse(resp.to_s).to_a.flatten.last
+      data = JSON.parse(resp.to_s).to_a.flatten
+      data.shift
       h = Hash.new
-      data.flatten.each { |a| h[a["Fecha"]] = a["Valor"].to_f }
+      data.flatten.each { |a| h[a["Fecha"]] = format_number(a["Valor"]) }
       h
+    end
+    
+    
+    def month_of_year(month, year, format="json")
+      resp = RestClient.get @endpoint+"/#{year}/#{month}", 
+              {
+                :params => {
+                  :apikey => @@config.sbif_key,
+                  :formato => format
+                }
+              }
+      data = JSON.parse(resp.to_s).to_a.flatten
+      data.shift
+      h = Hash.new
+      data.flatten.each { |a| h[a["Fecha"]] = format_number(a["Valor"]) }
+      h
+    end
+    
+    def on_date(year, month, day, format="json")
+      resp = RestClient.get @endpoint+"/#{year}/#{month}/#{day}", 
+              {
+                :params => {
+                  :apikey => @@config.sbif_key,
+                  :formato => format
+                }
+              }
+      data = JSON.parse(resp.to_s).to_a.flatten.last
+      format_number(data["Valor"])
     end
     
     private
