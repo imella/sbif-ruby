@@ -26,7 +26,7 @@ module Sbif
         data = JSON.parse(resp.to_s).to_a.flatten.last
         format_number(data["Valor"])
       rescue
-        raise "Error #{resp.response} #{@@config.sbif_key}"
+        raise "Error #{@endpoint} #{@@config.sbif_key}"
       end
     end
     
