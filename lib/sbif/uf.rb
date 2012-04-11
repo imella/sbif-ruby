@@ -25,8 +25,8 @@ module Sbif
                 }
         data = JSON.parse(resp.to_s).to_a.flatten.last
         format_number(data["Valor"])
-      rescue(e)
-        raise "Error #{e} #{resp.response}"
+      rescue
+        raise "Error #{resp.response}"
       end
     end
     
