@@ -15,7 +15,6 @@ module Sbif
     
     # Returns todays UF value
     def today(format="json")
-      begin
         resp = RestClient.get @endpoint,
                 {
                   :params => {
@@ -25,9 +24,6 @@ module Sbif
                 }
         data = JSON.parse(resp.to_s).to_a.flatten.last
         format_number(data["Valor"])
-      rescue
-        raise "Error #{@endpoint} #{@@config.sbif_key}"
-      end
     end
     
     # Returns each day UF value for a whole year
